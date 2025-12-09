@@ -27,11 +27,20 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-              <span className="text-purple-900 font-bold text-xl">L</span>
+            <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+              scrolled 
+            ? 'bg-indigo-800/1'
+            : 'bg-indigo-800'
+               }`}>
+                      <img
+                        src="/favicon.ico"
+                        alt="Logo"
+                        className="w-8 h-8"
+                        style={{ display: 'block' }}
+                      />
             </div>
             <span className="text-white font-bold text-xl hidden sm:block">
-              LumenTech
+              Lumentech
             </span>
           </Link>
 
