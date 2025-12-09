@@ -40,7 +40,7 @@ export default function Navbar() {
                       />
             </div>
             <span className="text-white font-bold text-xl hidden sm:block">
-              Lumentech
+              Lumentec
             </span>
           </Link>
 
