@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LumenTec",
+  title: "Lumentech - Website",
   description: "Desarrollo de software de alto rendimiento",
   icons: {
     icon: "/favicon.ico",
