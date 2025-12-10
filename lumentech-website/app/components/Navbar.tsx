@@ -53,7 +53,7 @@ export default function Navbar() {
               Servicios
             </Link>
             <Link
-              href="/about-us"
+              href="/about"
               className="text-white hover:text-purple-200 transition-colors duration-200 font-medium"
             >
               Sobre Nosotros
