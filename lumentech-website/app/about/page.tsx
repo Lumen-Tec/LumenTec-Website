@@ -132,7 +132,7 @@ export default function About() {
                 <div className="max-w-xl">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">¿Tienes una idea en mente?</h2>
                     <p className="text-slate-300 text-lg">
-                        Ya sea una startup o una empresa establecida, estamos listos para llevar tu proyecto al siguiente nivel tecnológico.
+                        Ya sea una startup o una empresa establecida, estamos listos para llevar tu proyecto al siguiente nivel.
                     </p>
                 </div>
                 <a 
