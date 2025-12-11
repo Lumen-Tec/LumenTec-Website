@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,12 +33,12 @@ export default function Navbar() {
             ? 'bg-indigo-800/1'
             : 'bg-indigo-800'
                }`}>
-                      <img
-                        src="/favicon.ico"
-                        alt="Logo"
-                        className="w-8 h-8"
-                        style={{ display: 'block' }}
-                      />
+                <Image
+                  src="/favicon.ico"
+                  alt="Logo"
+                  width={32}
+                  height={32}
+                />
             </div>
             <span className="text-white font-bold text-xl hidden sm:block">
               Lumentec

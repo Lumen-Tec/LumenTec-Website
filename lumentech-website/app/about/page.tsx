@@ -173,7 +173,12 @@ function TeamCard({ name, role, linkedinUrl, initials }: TeamCardProps) {
           rel="noopener noreferrer"
           className="w-full py-2.5 px-4 rounded-lg border border-slate-200 text-slate-600 font-medium hover:text-white hover:bg-[#0077b5] hover:border-[#0077b5] transition-all duration-200 flex items-center justify-center gap-2"
         >
-          <img src="https://res.cloudinary.com/drec8g03e/image/upload/v1765327013/linkedin_speobq.svg" alt="LinkedIn" className="w-5 h-5" />
+          <Image
+            src="https://res.cloudinary.com/drec8g03e/image/upload/v1765327013/linkedin_speobq.svg"
+            alt="LinkedIn Logo"
+            width={20}
+            height={20}
+          />
           <span>LinkedIn</span>
         </a>
       </div>
