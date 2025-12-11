@@ -70,19 +70,19 @@ export default function About() {
             />
             <TeamCard 
               name="Deislher Sánchez" 
-              role="Desarrollador Full Stack"
+              role="Desarrollador Backend"
               linkedinUrl="https://www.linkedin.com/in/deislher-s%C3%A1nchez-funez-0213a53a0/"
               initials="DS"
             />
             <TeamCard 
               name="Bryan Londoño" 
-              role="Desarrollador Full Stack"
+              role="Desarrollador Backend"
               linkedinUrl="https://www.linkedin.com/in/bryan-londo%C3%B1o-marchena-ba779525b/"
               initials="BL"
             />
             <TeamCard 
               name="Eduardo Rojas" 
-              role="Desarrollador Full Stack"
+              role="Desarrollador Backend"
               linkedinUrl=""
               initials="ER"
             />
