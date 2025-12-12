@@ -116,6 +116,15 @@ export default function About() {
             imageAlt="Logo de Lumen Match3"
             websiteUrl="https://lumenmatch3.vercel.app/"
           />
+
+          <ProjectCard
+            title="Portafolio Personal - Yosimar Montenegro"
+            category="Web Personal"
+            description="Desarrollo del portafolio personal de Yosimar Montenegro, destacando sus habilidades y proyectos."
+            imageUrl="https://res.cloudinary.com/dbcbrgbyy/image/upload/v1765564927/SerafinoLogo_rjarip.png"
+            imageAlt="Logo del portafolio de Yosimar Montenegro"
+            websiteUrl="https://front-portfolio-black.vercel.app/"
+          />
           </div>
         </section>
 
