@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
 
-  metadataBase: new URL("https://lumen-tec-website.vercel.app"), 
+  metadataBase: new URL("https://lumentec.business"), 
 
   title: {
     default: "Lumentec | Desarrollo de Software de Alto Rendimiento",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   
   applicationName: "Lumentec",
   
-  authors: [{ name: "Lumentec Team", url: "https://lumen-tec-website.vercel.app" }],
+  authors: [{ name: "Lumentec Team", url: "https://lumentec.business" }],
   creator: "Lumentec",
   
   keywords: [
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lumentec | Desarrollo de Software de Alto Rendimiento",
     description: "Expertos en desarrollo de software escalable y consultoría tecnológica en Costa Rica.",
-    url: "https://lumentec.business/",
+    url: "https://lumentec.business",
     siteName: "Lumentec",
     images: [
       {
