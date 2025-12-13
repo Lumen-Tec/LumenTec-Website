@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lumentec | Desarrollo de Software de Alto Rendimiento",
     description: "Expertos en desarrollo de software escalable y consultoría tecnológica en Costa Rica.",
-    url: "https://lumen-tec-website.vercel.app/",
+    url: "https://lumentec.business/",
     siteName: "Lumentec",
     images: [
       {
