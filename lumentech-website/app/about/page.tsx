@@ -1,6 +1,40 @@
+import { Metadata } from "next";
 import Image from 'next/image';
 import TeamCard  from "../components/TeamCard";
 import ProjectCard from "../components/ProjectCard";
+
+export const metadata: Metadata = {
+  title: "Sobre Nosotros",
+  description: "Conoce la misión, los proyectos y el equipo detrás de Lumentec. Empresa de desarrollo de software de alto rendimiento especializada en Next.js, React y Node.js en Costa Rica.",
+  
+  openGraph: {
+    title: "Sobre Nosotros | Lumentec",
+    description: "Conoce la misión, los proyectos y el equipo detrás de Lumentec. Desarrollo de software de alto rendimiento en Costa Rica.",
+    url: "https://lumentec.business/about",
+    siteName: "Lumentec",
+    images: [
+      {
+        url: "https://res.cloudinary.com/drec8g03e/image/upload/v1765326134/business_evv0zn.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Equipo Lumentec - Sobre Nosotros",
+      },
+    ],
+    locale: "es_CR",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Sobre Nosotros | Lumentec",
+    description: "Conoce la misión, los proyectos y el equipo detrás de Lumentec.",
+    images: ["https://res.cloudinary.com/drec8g03e/image/upload/v1765326134/business_evv0zn.jpg"],
+  },
+
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 export default function About() {
   return (

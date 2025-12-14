@@ -75,10 +75,11 @@ export const metadata: Metadata = {
     siteName: "Lumentec",
     images: [
       {
-        url: "https://res.cloudinary.com/drec8g03e/image/upload/v1765318192/lumentech-icon_zb5xsd.png",
+        url: "https://res.cloudinary.com/drec8g03e/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1765318192/lumentech-icon_zb5xsd.png",
         width: 1200,
         height: 630,
         alt: "Lumentec - Soluciones Tecnológicas",
+        type: "image/png",
       },
     ],
     locale: "es_CR", 
@@ -89,7 +90,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lumentec | Software de Alto Rendimiento",
     description: "Desarrollo de software escalable y consultoría tecnológica en Costa Rica.",
-    images: ["https://res.cloudinary.com/drec8g03e/image/upload/v1765318192/lumentech-icon_zb5xsd.png"],
+    images: ["https://res.cloudinary.com/drec8g03e/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1765318192/lumentech-icon_zb5xsd.png"],
   },
   
   verification: {
@@ -102,8 +103,36 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Lumentec",
+    "url": "https://lumentec.business",
+    "logo": "https://res.cloudinary.com/drec8g03e/image/upload/v1765318192/lumentech-icon_zb5xsd.png",
+    "description": "Expertos en desarrollo de software escalable, Next.js y consultoría tecnológica en Costa Rica. Transformamos ideas en soluciones digitales de alto impacto.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CR",
+      "addressLocality": "Costa Rica"
+    },
+    "sameAs": [
+      "https://lumentec.business"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": ["es", "en"]
+    }
+  };
+
   return (
     <html lang="es-CR">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

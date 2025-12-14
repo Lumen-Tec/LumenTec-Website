@@ -1,5 +1,39 @@
+import { Metadata } from "next";
 import CardService from "../components/CardService";
 import BadgeService from "../components/BadgeService";
+
+export const metadata: Metadata = {
+  title: "Servicios de Desarrollo de Software | Lumentec",
+  description: "Desarrollo web de alto impacto con Next.js/React, arquitectura y rendimiento, backend con Node.js/Express. Software escalable y optimizado en Costa Rica.",
+  
+  openGraph: {
+    title: "Servicios de Desarrollo de Software | Lumentec",
+    description: "Desarrollo web de alto impacto, arquitectura y rendimiento, backend escalable. Expertos en Next.js, React y Node.js en Costa Rica.",
+    url: "https://lumentec.business/services",
+    siteName: "Lumentec",
+    images: [
+      {
+        url: "https://res.cloudinary.com/drec8g03e/image/upload/v1765318192/lumentech-icon_zb5xsd.png",
+        width: 1200,
+        height: 630,
+        alt: "Servicios de Desarrollo de Software - Lumentec",
+      },
+    ],
+    locale: "es_CR",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Servicios de Desarrollo de Software | Lumentec",
+    description: "Desarrollo web de alto impacto, arquitectura y rendimiento, backend escalable.",
+    images: ["https://res.cloudinary.com/drec8g03e/image/upload/v1765318192/lumentech-icon_zb5xsd.png"],
+  },
+
+  alternates: {
+    canonical: "/services",
+  },
+};
 
 export default function Services() {
   return (
