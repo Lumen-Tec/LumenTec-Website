@@ -115,14 +115,6 @@ export default function About() {
               linkedinUrl="https://www.linkedin.com/in/bryan-londo%C3%B1o-marchena-ba779525b/"
               initials="BL"
             />
-            <TeamCard 
-              name="Eduardo Rojas" 
-              role="Desarrollador Backend"
-              linkedinUrl=""
-              initials="ER"
-            />
-
-
           </div>
         </section>
 
