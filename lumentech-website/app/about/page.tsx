@@ -131,7 +131,7 @@ export default function About() {
               description="Plataforma de comercio electrónico desarrollada a medida para la gestión y venta de perfumería. Cuenta con un panel administrativo intuitivo, control de inventario y optimización SEO."
               imageUrl="https://res.cloudinary.com/drec8g03e/image/upload/v1762655746/jyjessence_y75wqc.webp"
               imageAlt="Logo de JyJ Essence"
-              websiteUrl="https://jyjessence.vercel.app/"
+              websiteUrl="https://jyjessence.business"
             />
 
           <ProjectCard
