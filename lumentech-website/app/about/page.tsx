@@ -128,10 +128,10 @@ export default function About() {
             <ProjectCard
               title="JyJ Essence"
               category="E-commerce"
-              description="Plataforma de comercio electrónico desarrollada a medida para la gestión y venta de perfumería. Cuenta con un panel administrativo intuitivo, control de inventario y optimización SEO."
+              description="Plataforma de comercio electrónico desarrollada a medida para la gestión y venta de perfumería. Cuenta con un panel administrativo intuitivo, control de inventario y optimización SEO. Nota: Es posible que el sitio no se visualice correctamente en algunos navegadores por defecto del sistema o de algunas redes sociales."
               imageUrl="https://res.cloudinary.com/drec8g03e/image/upload/v1762655746/jyjessence_y75wqc.webp"
               imageAlt="Logo de JyJ Essence"
-              websiteUrl="https://jyjessence.business"
+              websiteUrl="https://jyjessence.vercel.app/"
             />
 
           <ProjectCard
