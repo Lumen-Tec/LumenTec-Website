@@ -115,6 +115,12 @@ export default function About() {
               linkedinUrl="https://www.linkedin.com/in/bryan-londo%C3%B1o-marchena-ba779525b/"
               initials="BL"
             />
+            <TeamCard 
+              name="Sergio Montoya" 
+              role="Desarrollador Backend"
+              linkedinUrl="https://www.linkedin.com/in/sergio-montoya-badilla-255210358/"
+              initials="SM"
+            />
           </div>
         </section>
 
