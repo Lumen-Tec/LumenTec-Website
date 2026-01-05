@@ -18,27 +18,27 @@ export default function CardService({
   className = '',
 }: CardServiceProps) {
   return (
-    <div className={`bg-white rounded-2xl shadow-lg border border-slate-100 p-8 flex flex-col gap-4 hover:-translate-y-1 hover:shadow-xl transition ${className}`}>
+    <div className={`bg-white rounded-2xl shadow-lg border border-slate-100 p-8 flex flex-col gap-4 transition-all duration-500 hover-lift hover-glow group ${className}`}>
       {/* Badge opcional en card */}
       {badgeText && (
         <div className="flex">
-          <Badge className="mb-2">{badgeText}</Badge>
+          <Badge className="mb-2 group-hover:scale-105 transition-transform">{badgeText}</Badge>
         </div>
       )}
 
       {code && (
-        <div className="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold">
+        <div className="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold group-hover:bg-indigo-600 group-hover:text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
           {code}
         </div>
       )}
 
-      <h3 className="text-xl font-bold text-slate-900">{title}</h3>
+      <h3 className="text-xl font-bold text-slate-900 group-hover:text-indigo-700 transition-colors">{title}</h3>
 
       <p className="text-slate-600">{description}</p>
 
       <ul className="text-sm text-slate-500 space-y-1">
         {details.map((item) => (
-          <li key={item}>• {item}</li>
+          <li key={item} className="group-hover:text-slate-600 transition-colors">• {item}</li>
         ))}
       </ul>
     </div>

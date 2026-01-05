@@ -5,7 +5,7 @@ import BadgeService from "../components/BadgeService";
 export const metadata: Metadata = {
   title: "Servicios de Desarrollo de Software | Lumentec",
   description: "Desarrollo web de alto impacto con Next.js/React, arquitectura y rendimiento, backend con Node.js/Express. Software escalable y optimizado en Costa Rica.",
-  
+
   openGraph: {
     title: "Servicios de Desarrollo de Software | Lumentec",
     description: "Desarrollo web de alto impacto, arquitectura y rendimiento, backend escalable. Expertos en Next.js, React y Node.js en Costa Rica.",
@@ -40,18 +40,31 @@ export default function Services() {
     <main className="min-h-screen bg-slate-50 selection:bg-indigo-100 selection:text-indigo-900">
       {/* sección hero */}
       <section className="relative bg-gradient-to-br from-indigo-950 via-indigo-800 to-indigo-600 text-white pt-28 pb-20 overflow-hidden">
+        {/* Elementos decorativos de fondo mejorados */}
         <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
-          <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-white blur-[120px]" />
-          <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-purple-400 blur-[100px]" />
+          <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-white blur-[120px] animate-pulse-glow" />
+          <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-purple-400 blur-[100px] animate-float" />
+          <div className="absolute top-1/2 left-1/3 w-64 h-64 rounded-full bg-indigo-300 blur-[80px] animate-float delay-500" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="uppercase tracking-[0.2em] text-indigo-100 text-sm mb-3">
+
+        {/* Partículas flotantes */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="particle particle-sm absolute top-[15%] left-[10%] animate-particle"></div>
+          <div className="particle particle-md absolute top-[35%] left-[20%] animate-particle delay-200"></div>
+          <div className="particle particle-lg absolute top-[55%] left-[15%] animate-particle delay-400"></div>
+          <div className="particle particle-sm absolute top-[20%] right-[15%] animate-particle delay-300"></div>
+          <div className="particle particle-md absolute top-[60%] right-[20%] animate-particle delay-100"></div>
+          <div className="particle particle-lg absolute top-[40%] right-[25%] animate-particle delay-500"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <p className="uppercase tracking-[0.2em] text-indigo-100 text-sm mb-3 animate-fade-in-up">
             Servicios
           </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Software de alto rendimiento
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in-up delay-100" style={{ animationFillMode: 'both' }}>
+            <span className="animate-gradient-text">Software de alto rendimiento</span>
           </h1>
-          <p className="text-indigo-100/90 text-lg max-w-2xl">
+          <p className="text-indigo-100/90 text-lg max-w-2xl animate-fade-in-up delay-200" style={{ animationFillMode: 'both' }}>
             Arquitectura, desarrollo y optimización para productos web rápidos,
             seguros y escalables.
           </p>
@@ -65,11 +78,13 @@ export default function Services() {
             code="DW"
             badgeText="Frontend"
             title="Desarrollo Web de alto impacto"
-            description="Frontends Next.js/React con foco en velocidad (LCP/CLS) óptimos, accesibilidad y UX clara."
+            description="Construimos aplicaciones web modernas con Next.js y React, enfocadas en rendimiento excepcional y experiencia de usuario memorable. Cada proyecto es optimizado para Core Web Vitals."
             details={[
-              "Renderización y optimización de carga",
-              "UI moderna con Tailwind",
-              "Integraciones y analítica",
+              "Server-side rendering y static generation",
+              "Interfaces responsivas con Tailwind CSS",
+              "Optimización de imágenes y lazy loading",
+              "Integraciones con APIs y CMS",
+              "Analítica y seguimiento de conversiones",
             ]}
           />
 
@@ -77,10 +92,13 @@ export default function Services() {
             code="AR"
             badgeText="Consultoría"
             title="Arquitectura y rendimiento"
-            description="Auditorías y elección de stack para escalar sin perder rendimiento."
+            description="Analizamos tu stack actual y proponemos mejoras arquitectónicas para escalar sin comprometer el rendimiento. Auditorías técnicas con recomendaciones accionables."
             details={[
-              "Monitoreo y optimización continua",
-              "Buenas prácticas DevOps/CI",
+              "Análisis de rendimiento y bottlenecks",
+              "Diseño de arquitectura escalable",
+              "Revisión de código y mejores prácticas",
+              "Estrategias de caching y CDN",
+              "Pipelines CI/CD optimizados",
             ]}
           />
 
@@ -88,20 +106,26 @@ export default function Services() {
             code="API"
             badgeText="Backend"
             title="APIs rápidas y seguras"
-            description="Backends con Fastify y otras tecnologías, priorizando rendimiento y seguridad."
+            description="Desarrollamos backends robustos con Node.js, Express y Fastify. APIs RESTful documentadas, seguras y optimizadas para manejar alta demanda."
             details={[
-              "Respuestas JSON o XML según necesidad",
-              "Autenticación, cifrado y rate limiting",
-              "Observabilidad y logs",
+              "Autenticación JWT y OAuth 2.0",
+              "Validación de datos y sanitización",
+              "Rate limiting y protección DDoS",
+              "Documentación con Swagger/OpenAPI",
+              "Logging estructurado y monitoreo",
             ]}
           />
         </div>
 
         {/* Servicios extras con badges */}
         <div className="bg-white rounded-2xl border border-indigo-100/70 shadow-md p-8 flex flex-col gap-4">
-          <h3 className="text-2xl font-bold text-slate-900">
-            También podemos ayudarte con
-          </h3>
+          <div>
+            <span className="inline-block px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-semibold mb-2">Más servicios</span>
+            <h3 className="text-2xl font-bold text-slate-900">
+              También podemos ayudarte con
+            </h3>
+            <p className="text-slate-600 mt-2">Servicios complementarios para potenciar tu producto digital</p>
+          </div>
           <div className="flex flex-wrap gap-3 text-sm">
             {[
               "Optimización SEO técnico",
@@ -109,6 +133,11 @@ export default function Services() {
               "Integraciones con terceros",
               "Automatización CI/CD",
               "Monitoreo y alertas",
+              "Diseño de bases de datos",
+              "Desarrollo de dashboards",
+              "Testing automatizado",
+              "Documentación técnica",
+              "Mantenimiento y soporte",
             ].map((label) => (
               <BadgeService key={label} label={label} />
             ))}
