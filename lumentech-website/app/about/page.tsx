@@ -128,7 +128,7 @@ export default function About() {
             />
             <TeamCard
               name="Deislher Sánchez"
-              role="Desarrollador Backend"
+              role="Desarrollador Frontend"
               linkedinUrl="https://www.linkedin.com/in/deislher-s%C3%A1nchez-funez-0213a53a0/"
               initials="DS"
             />
