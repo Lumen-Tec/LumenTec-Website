@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,36 +15,36 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#000000", 
+  themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
 
-  metadataBase: new URL("https://lumentec.business"), 
+  metadataBase: new URL("https://lumentec.business"),
 
   title: {
     default: "Lumentec | Desarrollo de Software de Alto Rendimiento",
     template: "%s | Lumentec",
   },
-  
+
   description: "Expertos en desarrollo de software escalable, Next.js y consultoría tecnológica en Costa Rica. Transformamos ideas en soluciones digitales de alto impacto.",
-  
+
   applicationName: "Lumentec",
-  
+
   authors: [{ name: "Lumentec Team", url: "https://lumentec.business" }],
   creator: "Lumentec",
-  
+
   keywords: [
-    "Lumentec", 
-    "Desarrollo de Software Costa Rica", 
-    "Software de Alto Rendimiento", 
-    "Next.js Developers", 
-    "React", 
-    "Node.js", 
-    "Consultoría Tecnológica", 
-    "Arquitectura de Software", 
+    "Lumentec",
+    "Desarrollo de Software Costa Rica",
+    "Software de Alto Rendimiento",
+    "Next.js Developers",
+    "React",
+    "Node.js",
+    "Consultoría Tecnológica",
+    "Arquitectura de Software",
     "Optimización Web"
   ],
 
@@ -82,7 +83,7 @@ export const metadata: Metadata = {
         type: "image/png",
       },
     ],
-    locale: "es_CR", 
+    locale: "es_CR",
     type: "website",
   },
 
@@ -92,7 +93,7 @@ export const metadata: Metadata = {
     description: "Desarrollo de software escalable y consultoría tecnológica en Costa Rica.",
     images: ["https://res.cloudinary.com/drec8g03e/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1765318192/lumentech-icon_zb5xsd.png"],
   },
-  
+
   verification: {
     google: "dNz4QuCFzsATPBD5SwCR5Slc4HR7AzonMArfRCWLFAE",
   },
@@ -138,6 +139,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
