@@ -182,12 +182,16 @@ export default function About() {
             />
 
             <ProjectCard
-              title="Sistema de inventario"
-              category="Web Personal"
+              title="Sistema de inventario para Delci Zapatos"
+              category="Sistema Interno"
               description="Sistema interno para la gestión integral de inventario y clientes de Delci Zapatos. Permite controlar existencias de bolsos y zapatos, registrar abonos y pagos, y mantener un historial claro de compras. Diseñado para optimizar la administración y fortalecer la relación con los clientes."
               imageUrl="https://res.cloudinary.com/drec8g03e/image/upload/v1768783244/delci_zapatos_er5sri.png"
               imageAlt="Logo de negocio Delci Zapatos"
-              websiteUrl=""
+              socialLinks={[
+                { type: 'instagram', url: 'https://www.instagram.com/delci_zapatos/' },
+                { type: 'facebook', url: 'https://www.facebook.com/delcizapatos506'},
+                { type: 'whatsapp', url: 'https://api.whatsapp.com/send?phone=%2B50684456785'}
+              ]}
             />
           </div>
         </section>
