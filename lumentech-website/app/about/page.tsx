@@ -180,6 +180,15 @@ export default function About() {
               imageAlt="Logo del portafolio de Yosimar Montenegro"
               websiteUrl="https://front-portfolio-black.vercel.app/"
             />
+
+            <ProjectCard
+              title="Sistema de inventario"
+              category="Web Personal"
+              description="Sistema interno para la gestión integral de inventario y clientes de Delci Zapatos. Permite controlar existencias de bolsos y zapatos, registrar abonos y pagos, y mantener un historial claro de compras. Diseñado para optimizar la administración y fortalecer la relación con los clientes."
+              imageUrl="https://res.cloudinary.com/drec8g03e/image/upload/v1768783244/delci_zapatos_er5sri.png"
+              imageAlt="Logo de negocio Delci Zapatos"
+              websiteUrl=""
+            />
           </div>
         </section>
 
