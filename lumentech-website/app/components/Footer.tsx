@@ -20,7 +20,7 @@ export default function Footer() {
                   className="brightness-0 invert"
                 />
               </div>
-              <span className="text-xl font-bold text-white tracking-wide">Lumentec</span>
+              <span className="text-xl font-bold text-white tracking-wide">LumenTec Software Solutions</span>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
               Transformamos negocios a través de software de alto rendimiento. 
@@ -77,7 +77,7 @@ export default function Footer() {
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-xs">
-            &copy; {currentYear} Lumentec.
+            &copy; {currentYear} LumenTec Software Solutions.
           </p>
         </div>
       </div>

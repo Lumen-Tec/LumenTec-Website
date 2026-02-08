@@ -39,7 +39,7 @@ export default function Navbar() {
               />
             </div>
             <span className="text-white font-bold text-xl hidden sm:block transition-all group-hover:text-indigo-200 group-hover:tracking-wide">
-              Lumentec
+              LumenTec Software Solutions
             </span>
           </Link>
 
