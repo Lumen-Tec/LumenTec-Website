@@ -155,6 +155,31 @@ export default function About() {
 
           <div className="space-y-8">
             <ProjectCard
+              title="Q'Leal"
+              category="Web App"
+              description="Aplicación web de fidelización para Q'Carne que digitaliza la experiencia del cliente mediante un sistema de sellos y tarjetas de lealtad. Los clientes pueden consultar en tiempo real su progreso y beneficios acumulados, mientras que el panel administrativo permite a gerentes y cajeros gestionar clientes, validar sellos y generar reportes de manera eficiente."
+              imageUrl="https://res.cloudinary.com/drec8g03e/image/upload/v1771191240/qcarne_x97g5t.png"
+              imageAlt="Logo Q'Leal"
+              websiteUrl="https://qleal.com"
+              socialLinks={[
+                {type: 'facebook', url: 'https://www.facebook.com/profile.php?id=100063827911745'},
+                {type: 'whatsapp', url: 'https://api.whatsapp.com/send?phone=%2B50662292065'},
+              ]}
+            />
+            <ProjectCard
+              title="Sistema de inventario para Delci Zapatos"
+              category="Sistema Interno"
+              description="Sistema interno para la gestión integral de inventario y clientes de Delci Zapatos. Permite controlar existencias de bolsos y zapatos, registrar abonos y pagos, y mantener un historial claro de compras. Diseñado para optimizar la administración y fortalecer la relación con los clientes."
+              imageUrl="https://res.cloudinary.com/drec8g03e/image/upload/v1768783244/delci_zapatos_er5sri.png"
+              imageAlt="Logo de negocio Delci Zapatos"
+              socialLinks={[
+                { type: 'instagram', url: 'https://www.instagram.com/delci_zapatos/' },
+                { type: 'facebook', url: 'https://www.facebook.com/delcizapatos506'},
+                { type: 'whatsapp', url: 'https://api.whatsapp.com/send?phone=%2B50662292065'}
+              ]}
+            />
+
+            <ProjectCard
               title="JyJ Essence"
               category="E-commerce"
               description="Plataforma de comercio electrónico desarrollada a medida para la gestión y venta de perfumería. Cuenta con un panel administrativo intuitivo, control de inventario y optimización SEO. Nota: Es posible que el sitio no se visualice correctamente en algunos navegadores por defecto del sistema o de algunas redes sociales."
@@ -179,19 +204,6 @@ export default function About() {
               imageUrl="https://res.cloudinary.com/dbcbrgbyy/image/upload/v1765564927/SerafinoLogo_rjarip.png"
               imageAlt="Logo del portafolio de Yosimar Montenegro"
               websiteUrl="https://front-portfolio-black.vercel.app/"
-            />
-
-            <ProjectCard
-              title="Sistema de inventario para Delci Zapatos"
-              category="Sistema Interno"
-              description="Sistema interno para la gestión integral de inventario y clientes de Delci Zapatos. Permite controlar existencias de bolsos y zapatos, registrar abonos y pagos, y mantener un historial claro de compras. Diseñado para optimizar la administración y fortalecer la relación con los clientes."
-              imageUrl="https://res.cloudinary.com/drec8g03e/image/upload/v1768783244/delci_zapatos_er5sri.png"
-              imageAlt="Logo de negocio Delci Zapatos"
-              socialLinks={[
-                { type: 'instagram', url: 'https://www.instagram.com/delci_zapatos/' },
-                { type: 'facebook', url: 'https://www.facebook.com/delcizapatos506'},
-                { type: 'whatsapp', url: 'https://api.whatsapp.com/send?phone=%2B50684456785'}
-              ]}
             />
           </div>
         </section>
