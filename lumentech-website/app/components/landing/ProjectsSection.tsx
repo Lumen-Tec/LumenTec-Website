@@ -24,7 +24,7 @@ export default function ProjectsSection({
           por nosotros
         </h2>
         <p className="ssub">
-          Soluciones reales para empresas reales. Cada proyecto nacio de un problema concreto y termino como una ventaja competitiva.
+          Soluciones reales para negocios de verdad. No hacemos proyectos por hacer; tomamos tu mayor problema y lo convertimos en un dolor de cabeza menos y un sistema que funciona
         </p>
         <div className="filters">
           <button className={`fb ${activeFilter === "all" ? "on" : ""}`} onClick={() => onFilterChange("all")}>
