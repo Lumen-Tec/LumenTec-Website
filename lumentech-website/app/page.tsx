@@ -1,176 +1,321 @@
-import Link from "next/link";
-import ServiceCard from "./components/ServiceCard";
-import AboutCard from "./components/AboutCard";
-import CTASection from "./components/CTASection";
-import MethodologySection from "./components/MethodologySection";
-import ValuesSection from "./components/ValuesSection";
+"use client";
+
+import { DM_Sans, Syne } from "next/font/google";
+import Head from "next/head";
+import {
+  BarChart3,
+  Bot,
+  Check,
+  ChevronRight,
+  Cloud,
+  Link2,
+  Rocket,
+  ShieldCheck,
+  Zap,
+} from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import LandingFooter from "./components/landing/LandingFooter";
+import LandingHero from "./components/landing/LandingHero";
+import LandingNav from "./components/landing/LandingNav";
+import ProjectModal from "./components/landing/ProjectModal";
+import ProjectsSection from "./components/landing/ProjectsSection";
+import { projects } from "./components/landing/projects";
+import type { Category, Project } from "./components/landing/types";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  weight: ["300", "400", "500"],
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  weight: ["400", "600", "700", "800"],
+});
+
 
 export default function Home() {
+  const [activeFilter, setActiveFilter] = useState<Category>("all");
+  const [modalProject, setModalProject] = useState<Project | null>(null);
+  const [count1, setCount1] = useState("0");
+  const [count2, setCount2] = useState("0%");
+  const [count3, setCount3] = useState("0");
+  const [count4, setCount4] = useState("0h");
+
+  const cursorGlowRef = useRef<HTMLDivElement | null>(null);
+  const statsRef = useRef<HTMLDivElement | null>(null);
+
+  const filteredProjects = useMemo(
+    () =>
+      projects.filter((project) => {
+        if (activeFilter === "all") {
+          return true;
+        }
+        return project.category === activeFilter;
+      }),
+    [activeFilter],
+  );
+
+  const go = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  useEffect(() => {
+    const onMouseMove = (event: MouseEvent) => {
+      if (!cursorGlowRef.current) {
+        return;
+      }
+      cursorGlowRef.current.style.left = `${event.clientX}px`;
+      cursorGlowRef.current.style.top = `${event.clientY}px`;
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    return () => {
+      document.removeEventListener("mousemove", onMouseMove);
+    };
+  }, []);
+
+  useEffect(() => {
+    const revealItems = document.querySelectorAll<HTMLElement>(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("v");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!statsRef.current) {
+      return;
+    }
+
+    const animateCount = (
+      target: number,
+      suffix: string,
+      duration: number,
+      update: (value: string) => void,
+    ) => {
+      let startTime: number | null = null;
+
+      const step = (timestamp: number) => {
+        if (!startTime) {
+          startTime = timestamp;
+        }
+
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        update(`${Math.floor(eased * target)}${suffix}`);
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      };
+
+      requestAnimationFrame(step);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0]?.isIntersecting) {
+          return;
+        }
+
+        window.setTimeout(() => {
+          animateCount(120, "", 1800, setCount1);
+          animateCount(98, "%", 1800, setCount2);
+          animateCount(8, "", 1600, setCount3);
+          animateCount(6, "h", 1600, setCount4);
+        }, 400);
+
+        observer.disconnect();
+      },
+      { threshold: 0.3 },
+    );
+
+    observer.observe(statsRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <main className="min-h-screen bg-slate-50 selection:bg-indigo-100 selection:text-indigo-900">
+    <>
+      <Head>
+        <title>LumenTec | Desarrollo de Software a Medida</title>
+        <meta
+          name="description"
+          content="Desarrollo de software, automatizacion, analitica y cloud para empresas. Conoce servicios, proceso y proyectos reales de LumenTec."
+        />
+        <meta name="keywords" content="desarrollo de software, landing software, consultoria tecnologica, automatizacion, cloud, Costa Rica" />
+        <link rel="canonical" href="https://lumentec.business/" />
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-indigo-950 via-indigo-900 to-indigo-800 text-white pt-40 pb-32 overflow-hidden">
-        {/* Elementos decorativos de fondo mejorados */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
-          <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-white blur-[120px] animate-pulse-glow"></div>
-          <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-indigo-500 blur-[100px] animate-float"></div>
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full bg-purple-500 blur-[80px] animate-float delay-500"></div>
-        </div>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="LumenTec | Desarrollo de Software a Medida" />
+        <meta
+          property="og:description"
+          content="Soluciones tecnicas que impulsan resultados: web, datos, automatizacion y cloud."
+        />
+        <meta property="og:url" content="https://lumentec.business/" />
+        <meta property="og:image" content="https://res.cloudinary.com/drec8g03e/image/upload/v1765326134/business_evv0zn.jpg" />
 
-        {/* Partículas flotantes */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="particle particle-sm absolute top-[20%] left-[10%] animate-particle"></div>
-          <div className="particle particle-md absolute top-[40%] left-[20%] animate-particle delay-200"></div>
-          <div className="particle particle-lg absolute top-[60%] left-[15%] animate-particle delay-400"></div>
-          <div className="particle particle-sm absolute top-[30%] right-[15%] animate-particle delay-300"></div>
-          <div className="particle particle-md absolute top-[70%] right-[20%] animate-particle delay-100"></div>
-          <div className="particle particle-lg absolute top-[50%] right-[10%] animate-particle delay-500"></div>
-        </div>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="LumenTec | Desarrollo de Software a Medida" />
+        <meta
+          name="twitter:description"
+          content="Conoce como LumenTec ayuda a empresas con software de alto rendimiento."
+        />
+        <meta name="twitter:image" content="https://res.cloudinary.com/drec8g03e/image/upload/v1765326134/business_evv0zn.jpg" />
+      </Head>
+      <div className={`${dmSans.variable} ${syne.variable} lt-wrap`}>
+        <div id="cg" ref={cursorGlowRef} />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="text-center md:text-left max-w-5xl mx-auto md:mx-0">
-            <div className="inline-flex items-center px-4 py-2 rounded-full border border-indigo-400/30 bg-indigo-900/30 backdrop-blur-sm mb-8 animate-fade-in-up">
-              <span className="flex h-2 w-2 rounded-full bg-green-400 mr-2 animate-pulse"></span>
-              <span className="text-sm font-medium text-indigo-100">Disponible para nuevos proyectos</span>
-            </div>
+        <ProjectModal project={modalProject} onClose={() => setModalProject(null)} />
+        <LandingNav onGoTo={go} />
+        <LandingHero
+          count1={count1}
+          count2={count2}
+          count3={count3}
+          count4={count4}
+          onGoTo={go}
+          statsRef={statsRef}
+        />
 
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 animate-fade-in-up delay-100 leading-tight">
-              Diseño Elegante. <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-white to-indigo-200 animate-gradient-text">Tecnología Robusta.</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-indigo-100/90 max-w-3xl leading-relaxed font-light mb-10 animate-fade-in-up delay-200">
-              Creamos experiencias digitales exclusivas que distinguen a tu marca.
-              Fusionamos estética minimalista con ingeniería de software de alto rendimiento.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start animate-fade-in-up delay-300">
-              <Link
-                href="/services"
-                className="btn-shimmer inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-semibold rounded-2xl text-indigo-900 bg-white hover:bg-slate-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:scale-105 min-w-[180px]"
-              >
-                Ver Soluciones
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-              </Link>
-              <Link
-                href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 border border-indigo-400/50 text-lg font-semibold rounded-2xl text-white bg-white/5 hover:bg-white/10 backdrop-blur-md transition-all hover:-translate-y-1 min-w-[180px]"
-              >
-                Agendar Llamada
-              </Link>
-            </div>
+        <div className="logos reveal">
+          <p>Negocios que han confiado en LumenTec</p>
+          <div className="logos-row">
+            <div className="litem">Q'Carnes Deluxe</div>
+            <div className="litem">Delci Zapatos</div>
+            <div className="litem">JyJ Essence</div>
           </div>
         </div>
-      </section>
 
-      <ValuesSection />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32 py-24">
-
-        {/* Seccion Servicios */}
-        <section id="servicios">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-6">
-              Nuestra Experiencia
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
-              Soluciones Tecnológicas Integrales
+        <section className="services" id="servicios">
+          <div className="services-hdr reveal">
+            <div className="stag">Lo que hacemos</div>
+            <h2 className="stitle">
+              Software disenado para
+              <br />
+              resolver problemas reales
             </h2>
-            <p className="text-slate-600 text-xl max-w-3xl mx-auto leading-relaxed">
-              No somos solo programadores, somos socios estratégicos. Diseñamos arquitectura de software pensada para escalar.
+            <p className="ssub">
+              No vendemos plantillas. Creamos soluciones a la medida de tu operacion, industria y objetivos de negocio.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <ServiceCard
-              title="Desarrollo Web & Apps"
-              description="Aplicaciones progresivas (PWA), sitios corporativos y plataformas SaaS construidas con Next.js y React. Velocidad y SEO optimizados."
-              icon={
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-              }
-              iconBgColor="bg-blue-50"
-              iconColor="text-blue-600"
-              iconHoverBg="group-hover:bg-blue-600"
-              linkColor="text-blue-600"
-              href="/services"
-            />
-
-            <ServiceCard
-              title="APIs & Infraestructura"
-              description="Backends robustos, bases de datos optimizadas y despliegues en la nube (AWS, Vercel). Seguridad y escalabilidad desde el día uno."
-              icon={
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
-              }
-              iconBgColor="bg-purple-50"
-              iconColor="text-purple-600"
-              iconHoverBg="group-hover:bg-purple-600"
-              linkColor="text-purple-600"
-              href="/services"
-            />
-
-            <ServiceCard
-              title="Auditoría & Consultoría"
-              description="¿Tu software es lento o inseguro? Analizamos tu código, identificamos cuellos de botella y proponemos soluciones efectivas."
-              icon={
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              }
-              iconBgColor="bg-emerald-50"
-              iconColor="text-emerald-600"
-              iconHoverBg="group-hover:bg-emerald-600"
-              linkColor="text-emerald-600"
-              href="/services"
-            />
+          <div className="sg reveal">
+            <div className="sc"><div className="sc-ico"><Zap size={20} strokeWidth={2.2} aria-hidden="true" /></div><h3>Desarrollo Web & Apps</h3><p>Plataformas SaaS, portales corporativos y aplicaciones rapidas, seguras y disenadas para escalar desde el primer sprint.</p><div className="sc-tag">React · Node · Next.js</div></div>
+            <div className="sc"><div className="sc-ico"><Bot size={20} strokeWidth={2.2} aria-hidden="true" /></div><h3>Automatizacion de Procesos</h3><p>Transformamos procesos manuales en flujos automatizados que trabajan por tu empresa 24/7 sin errores humanos.</p><div className="sc-tag">RPA · APIs · Integraciones</div></div>
+            <div className="sc"><div className="sc-ico"><BarChart3 size={20} strokeWidth={2.2} aria-hidden="true" /></div><h3>Inteligencia de Datos</h3><p>Dashboards en tiempo real, reportes automaticos y modelos predictivos que convierten datos en decisiones claras.</p><div className="sc-tag">BI · Analytics · AI/ML</div></div>
+            <div className="sc"><div className="sc-ico"><Cloud size={20} strokeWidth={2.2} aria-hidden="true" /></div><h3>Arquitectura Cloud</h3><p>Migramos, optimizamos y gestionamos tu infraestructura en la nube para maxima disponibilidad y rendimiento.</p><div className="sc-tag">AWS · GCP · Azure</div></div>
+            <div className="sc"><div className="sc-ico"><Link2 size={20} strokeWidth={2.2} aria-hidden="true" /></div><h3>Integraciones & APIs</h3><p>Conectamos tus herramientas existentes (ERP, CRM, eCommerce) para que trabajen en sincronia sin fricciones.</p><div className="sc-tag">REST · GraphQL · Webhooks</div></div>
+            <div className="sc"><div className="sc-ico"><ShieldCheck size={20} strokeWidth={2.2} aria-hidden="true" /></div><h3>Consultoria Tecnologica</h3><p>Planificacion estrategica de tu tecnologia: que construir, cuando y como hacerlo rentable para tu negocio.</p><div className="sc-tag">CTO Fraccionado · Roadmaps</div></div>
           </div>
         </section>
 
-        {/* Methodology Section */}
-        <MethodologySection />
-
-        {/* Sobre Nosotros Section */}
-        <section id="sobre-nosotros">
-          <div className="grid md:grid-cols-12 gap-12 items-center">
-            <div className="md:col-span-5">
-              <span className="inline-block px-4 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-semibold mb-6">
-                Sobre Lumentec
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                Más que código, creamos valor.
+        <section className="how" id="proceso">
+          <div className="how-in">
+            <div>
+              <div className="stag reveal">Nuestro proceso</div>
+              <h2 className="stitle reveal">
+                Asi trabajamos contigo,
+                <br />
+                sin sorpresas
               </h2>
-              <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                Nacimos con la misión de elevar el estándar del desarrollo de software en la región.
-                Nos obsesiona la calidad, el rendimiento y la experiencia de usuario.
+              <p className="ssub reveal" style={{ marginBottom: "32px" }}>
+                Proceso claro, iterativo y enfocado en resultados. Siempre sabes en que etapa esta tu proyecto.
               </p>
-              <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                Cada línea de código que escribimos tiene un propósito: hacer que tu negocio sea más eficiente y rentable.
-              </p>
-
-              <Link
-                href="/about"
-                className="inline-flex items-center font-bold text-indigo-600 hover:text-indigo-800 transition-colors"
-              >
-                Conoce a nuestro equipo
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-              </Link>
+              <div className="steps reveal">
+                <div className="step"><div className="snum">01</div><div><h4>Diagnostico gratuito</h4><p>Analizamos tu operacion e identificamos oportunidades de mejora antes de escribir una sola linea de codigo.</p></div></div>
+                <div className="step"><div className="snum">02</div><div><h4>Propuesta a medida</h4><p>Plan tecnico claro con tiempos, costos y entregables definidos desde el inicio. Sin letra pequena.</p></div></div>
+                <div className="step"><div className="snum">03</div><div><h4>Desarrollo agil</h4><p>Sprints quincenales con demos reales. Ves el avance, das retroalimentacion y ajustamos en tiempo real.</p></div></div>
+                <div className="step"><div className="snum">04</div><div><h4>Lanzamiento & soporte</h4><p>Entregamos, capacitamos a tu equipo y damos soporte continuo para que nada se detenga.</p></div></div>
+              </div>
             </div>
-            <div className="md:col-span-7">
-              <AboutCard />
+            <div className="how-vis reveal">
+              <div className="term">
+                <div className="th"><div className="dot dr" /><div className="dot dy" /><div className="dot dg" /></div>
+                <div className="tb">
+                  <div className="tl"><span className="cmd">$</span> lumentec init <span className="str">mi-proyecto</span></div>
+                  <div className="tl tl-sep">────────────────────────</div>
+                  <div className="tl"><span className="kw"><ChevronRight size={14} strokeWidth={2.5} aria-hidden="true" /></span> Analizando requerimientos...</div>
+                  <div className="tl"><span className="kw"><ChevronRight size={14} strokeWidth={2.5} aria-hidden="true" /></span> Definiendo arquitectura...</div>
+                  <div className="tl"><span className="ok"><Check size={14} strokeWidth={2.5} aria-hidden="true" /></span> Sprint 1 completado</div>
+                  <div className="tl"><span className="ok"><Check size={14} strokeWidth={2.5} aria-hidden="true" /></span> Sprint 2 completado</div>
+                  <div className="tl"><span className="ok"><Check size={14} strokeWidth={2.5} aria-hidden="true" /></span> QA & testing passed</div>
+                  <div className="tl tl-sep">────────────────────────</div>
+                  <div className="tl"><span className="ok"><Rocket size={14} strokeWidth={2.5} aria-hidden="true" /></span> Deploy exitoso en produccion</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Final */}
-        <div id="contact">
-          <CTASection />
-        </div>
+        <ProjectsSection
+          activeFilter={activeFilter}
+          filteredProjects={filteredProjects}
+          onFilterChange={setActiveFilter}
+          onOpenProject={setModalProject}
+        />
+        {/*
+        <section className="testimonials" id="testimonios">
+          <div className="test-hdr reveal">
+            <div className="stag">Lo que dicen de nosotros</div>
+            <h2 className="stitle">
+              Resultados que hablan
+              <br />
+              por si solos
+            </h2>
+          </div>
+          <div className="tgrid reveal">
+            <div className="tc"><div className="tc-stars">★★★★★</div><p className="tc-txt">"LumenTec transformo completamente nuestra operacion. El sistema redujo nuestros tiempos de procesamiento en un 70%. Entrega puntual, comunicacion excelente y resultados visibles desde la semana uno."</p><div className="tc-auth"><div className="tc-av">MA</div><div><div className="tc-name">Maria Alvarado</div><div className="tc-role">COO · Distribuidora Altimax</div></div></div></div>
+            <div className="tc"><div className="tc-stars">★★★★★</div><p className="tc-txt">"Cuando nuestro software interno colapsaba, LumenTec entrego una plataforma nueva y estable en 6 semanas. Nuestro equipo la adopto sin fricciones. Increible capacidad de ejecucion y profesionalismo."</p><div className="tc-auth"><div className="tc-av">RV</div><div><div className="tc-name">Rodrigo Valverde</div><div className="tc-role">CEO · VerdeTech CR</div></div></div></div>
+            <div className="tc"><div className="tc-stars">★★★★★</div><p className="tc-txt">"Lo que mas valoro es la transparencia total. Siempre supe en que trabajaban, los costos nunca cambiaron y el resultado supero expectativas. Son el equipo tecnologico que toda empresa necesita."</p><div className="tc-auth"><div className="tc-av">LC</div><div><div className="tc-name">Laura Castro</div><div className="tc-role">Fundadora · Solutron Digital</div></div></div></div>
+          </div>
+        </section>
+        */}
+        <section className="cta" id="contacto">
+          <div className="rw reveal">
+            <div className="stag">Listo para empezar?</div>
+            <h2>
+              Tu proximo sistema
+              <br />
+              comienza con una llamada
+            </h2>
+            <p>Sin compromisos. Sin tecnicismos. Una conversacion honesta sobre como podemos ayudarte a crecer.</p>
+            <div className="cta-actions">
+              <a className="btn-p cta-btn" href="mailto:lumentec25@gmail.com">
+                Agendar consulta gratuita
+              </a>
+              <a className="btn-g cta-btn" href="https://wa.me/+50662435191" target="_blank" rel="noreferrer">
+                Escribir por WhatsApp
+              </a>
+            </div>
+            <div className="cta-trust" role="list" aria-label="Beneficios de contacto">
+              <span className="cta-trust-item" role="listitem"><Check size={14} strokeWidth={2.4} aria-hidden="true" /> Respuesta en menos de 24h</span>
+              <span className="cta-trust-item" role="listitem"><Check size={14} strokeWidth={2.4} aria-hidden="true" /> Sin contratos ocultos</span>
+              <span className="cta-trust-item" role="listitem"><Check size={14} strokeWidth={2.4} aria-hidden="true" /> Primera consulta sin costo</span>
+            </div>
+          </div>
+        </section>
 
+        <LandingFooter />
       </div>
-    </main>
+    </>
   );
 }
