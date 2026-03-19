@@ -25,7 +25,7 @@ export const projects: Project[] = [
       "Sistema interno para gestion de inventario y clientes, con control de existencias, abonos, pagos e historial de compras.",
     longDescription:
       "Sistema interno para la gestion integral de inventario y clientes de Delci Zapatos. Permite controlar existencias de bolsos y zapatos, registrar abonos y pagos, y mantener un historial claro de compras. Disenado para optimizar la administracion y fortalecer la relacion con los clientes.",
-    imageUrl: "https://res.cloudinary.com/drec8g03e/image/upload/v1768783244/delci_zapatos_er5sri.png",
+    imageUrl: "https://res.cloudinary.com/drec8g03e/image/upload/v1772501928/delci-zapatos_jhguv9.png",
     imageAlt: "Logo de negocio Delci Zapatos",
     tech: "React · Node.js · PostgreSQL",
     duration: "5 semanas",
