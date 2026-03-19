@@ -80,7 +80,19 @@ export default function ProjectsSection({
                 <span>
                   {project.client} · {project.duration.replace(" semanas", " sem.")}
                 </span>
-                <span className="plink">Ver detalle →</span>
+                {project.liveUrl ? (
+                  <a
+                    className="plink"
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={(event) => event.stopPropagation()}
+                  >
+                    Visitar sitio
+                  </a>
+                ) : (
+                  <span className="plink">Ver detalle</span>
+                )}
               </div>
             </div>
           );

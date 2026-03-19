@@ -7,6 +7,7 @@ export type Project = {
   longDescription: string;
   imageUrl: string;
   imageAlt: string;
+  liveUrl?: string;
   tech: string;
   duration: string;
   client: string;

@@ -35,6 +35,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <div className="mml">Resultado clave</div>
                 <div className="mmv mmv-sm">{project.result}</div>
               </div>
+              {project.liveUrl ? (
+                <div className="mmi">
+                  <div className="mml">Sitio en vivo</div>
+                  <a className="mmv mmv-sm plink" href={project.liveUrl} target="_blank" rel="noreferrer">
+                    {project.liveUrl}
+                  </a>
+                </div>
+              ) : null}
             </div>
           ) : null}
         </div>
