@@ -1,0 +1,391 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+	title="LumenTec Software Solutions | Desarrollo de software en Costa Rica"
+	description="Software a medida y sitios web claros para negocios en Costa Rica y Latinoamerica."
+>
+	<header class="navbar">
+		<div class="container nav-inner">
+			<a class="logo" href="#inicio" aria-label="LumenTec Software Solutions">
+				<span class="logo-text">LumenTec Software Solutions</span>
+			</a>
+			<button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+				<i class="fa-solid fa-bars"></i>
+			</button>
+			<nav id="main-nav" class="nav-links" aria-label="Navegacion principal">
+				<a href="#nosotros">Sobre nosotros</a>
+				<a href="#servicios">Servicios</a>
+				<a href="#faq">FAQ</a>
+				<a href="#contacto">Contacto</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section id="inicio" class="hero">
+			<div class="hero-bg" aria-hidden="true">
+				<span class="orb orb-1"></span>
+				<span class="orb orb-2"></span>
+				<span class="orb orb-3"></span>
+				<span class="hero-grid"></span>
+			</div>
+			<div class="container hero-grid-layout">
+				<div class="hero-copy reveal">
+					<p class="eyebrow">Desde Costa Rica para toda la región</p>
+					<h1>
+						Tienes un buen negocio. Falta que el mundo lo vea.
+					</h1>
+					<p class="lead">
+						La tecnología no debería frenarte.
+						Muchos negocios en Costa Rica pierden clientes todos los días porque no tienen las herramientas correctas, no porque el producto sea malo.
+						Nosotros lo resolvemos. Sin tecnicismos. Sin complicaciones
+					</p>
+					<div class="hero-actions">
+						<a class="btn btn-primary" href="#servicios">Ver servicios</a>
+						<a class="btn btn-ghost" href="#contacto">Contactanos</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="nosotros" class="section section-light">
+			<div class="container">
+				<div class="section-heading reveal">
+					<span>Sobre nosotros</span>
+					<h2>Sabemos lo que es querer crecer y sentir que todo juega en contra.</h2>
+					<p>
+						En Costa Rica emprender no es fácil. Los trámites, los costos, los "eso no se puede" y las soluciones que prometen mucho pero no funcionan. Lo conocemos porque lo vivimos.
+					</p>
+					<p style="margin-top: 1rem;">
+						Por eso creamos LumenTec. Hemos estado en tu lugar y sabemos lo difícil que es cuando todo parece más complicado de lo que debería.
+					</p>
+				</div>
+					<div class="values-grid">
+						<article class="value-card reveal" style="--delay: 160ms">
+							<i class="fa-solid fa-compass"></i>
+							<h3>Sin sorpresas</h3>
+							<p>Lo que acordamos es lo que hacemos. Sin sorpresas a mitad del camino.</p>
+						</article>
+						<article class="value-card reveal" style="--delay: 220ms">
+							<i class="fa-solid fa-handshake"></i>
+							<h3>Respondemos</h3>
+							<p>Sabemos lo desesperante que es escribir y que nadie conteste. Eso no pasa aquí.</p>
+						</article>
+						<article class="value-card reveal" style="--delay: 280ms">
+							<i class="fa-solid fa-award"></i>
+							<h3>Lo hacemos bien</h3>
+							<p>No entregamos algo solo para cumplir. Lo probamos hasta que esté bien y se ajuste a tu forma de trabajar.</p>
+						</article>
+					</div>
+			</div>
+		</section>
+
+		<section id="servicios" class="section">
+			<div class="container">
+				<div class="section-heading center reveal">
+					<span>Servicios</span>
+					<h2>Elige lo que tu negocio necesita ahora.</h2>
+					<p>No vendemos tecnología por vender. Te ayudamos a resolver lo que te está frenando, para que dejes de perder clientes por no tener las herramientas correctas.</p>
+				</div>
+				<div class="services-grid">
+				<article class="service-card reveal" style="--delay: 80ms">
+						<i class="fa-solid fa-layer-group"></i>
+						<h3>Landing Pages</h3>
+						<ul class="service-points">
+							<li>Una página pensada para que el que llega, te escriba o compre.</li>
+							<li>Si dependes del WhatsApp para vender, esto te cambia el juego.</li>
+							<li>Muchos negocios pierden clientes por no tener dónde mandarlos.</li>
+							<li>Más contactos y más ventas sin estar pegado al celular todo el día.</li>
+						</ul>
+					</article>
+					<article class="service-card reveal" style="--delay: 140ms">
+						<i class="fa-solid fa-gears"></i>
+						<h3>Software a Medida</h3>
+						<ul class="service-points">
+							<li>Un programa hecho exactamente para como trabaja tu negocio.</li>
+							<li>Si tus procesos no caben en Excel ni en ninguna app genérica, esto es para ti.</li>
+							<li>Dejas de perder tiempo haciendo lo mismo a mano una y otra vez.</li>
+							<li>Tu equipo trabaja más rápido y con menos errores desde el primer día.</li>
+						</ul>
+					</article>
+					<article class="service-card reveal" style="--delay: 200ms">
+						<i class="fa-solid fa-mobile-screen"></i>
+						<h3>Aplicaciones Móviles</h3>
+						<ul class="service-points">
+							<li>Una app que tus clientes van a entender sin que nadie les explique.</li>
+							<li>Ideal si tus clientes necesitan pedirte algo rápido, sin llamarte.</li>
+							<li>Se acabaron los mensajes perdidos y las respuestas que llegan tarde.</li>
+							<li>Tus clientes vuelven porque les hiciste la vida más fácil.</li>
+						</ul>
+					</article>
+					<article class="service-card reveal" style="--delay: 260ms">
+						<i class="fa-solid fa-globe"></i>
+						<h3>Plataformas Web</h3>
+						<ul class="service-points">
+							<li>Un sitio web que hace algo, no solo que se ve bonito.</li>
+							<li>Si necesitas vender, reservar o gestionar todo desde un solo lugar.</li>
+							<li>Se acabaron las hojas de Excel, los cuadernos y los datos perdidos.</li>
+							<li>Tienes el control de tu negocio desde cualquier dispositivo.</li>
+						</ul>
+					</article>
+					<article class="service-card reveal" style="--delay: 320ms">
+						<i class="fa-solid fa-life-ring"></i>
+						<h3>Mantenimiento y Soporte</h3>
+						<ul class="service-points">
+							<li>Estamos ahí cuando algo falla, no solo cuando todo va bien.</li>
+							<li>Para negocios que no pueden darse el lujo de que su sistema se caiga.</li>
+							<li>Un problema técnico puede costarte ventas. Nosotros lo resolvemos rápido.</li>
+							<li>Tu negocio sigue corriendo y tú te enfocas en lo tuyo.</li>
+						</ul>
+					</article>
+					<article class="service-card reveal" style="--delay: 380ms">
+						<i class="fa-solid fa-graduation-cap"></i>
+						<h3>Capacitación y Acompañamiento</h3>
+						<ul class="service-points">
+							<li>Te enseñamos a usar lo que construimos, a tu ritmo y sin palabras raras.</li>
+							<li>Para equipos que necesitan sentirse seguros antes de usar algo nuevo.</li>
+							<li>De nada sirve tener buenas herramientas si nadie sabe cómo usarlas.</li>
+							<li>En una semana, tu equipo trabaja solo y con confianza.</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="portafolio" class="section section-dark">
+			<div class="container">
+				<div class="section-heading center reveal">
+					<span>Portafolio</span>
+					<h2>Lo que hemos construido para negocios como el tuyo.</h2>
+					<p>No prometemos. Mostramos.</p>
+				</div>
+				<div class="portfolio-grid">
+					<article class="project-card reveal" style="--delay: 100ms">
+						<div class="project-thumb">
+							<span class="project-tag">Comercio</span>
+							<h3>Q Leal</h3>
+							<p>Sus clientes perdían las tarjetas físicas y los sellos se iban con ellas. Creamos un sistema de fidelidad virtual para que ningún cliente pierda sus puntos y el negocio deje de perder clientes</p>
+						</div>
+						<div class="project-overlay">
+							<a class="btn btn-ghost btn-small" href="https://qleal.com/">Ver mas</a>
+						</div>
+					</article>
+					<article class="project-card reveal" style="--delay: 180ms">
+						<div class="project-thumb">
+							<span class="project-tag">E-commerce</span>
+							<h3>JyJ Essence</h3>
+							<p>Vendían perfumes solo por redes y mensajes, y cada venta dependía de que alguien contestara a tiempo. Ahora tienen una tienda en línea donde sus clientes compran solos, a cualquier hora, sin esperar respuesta.</p>
+						</div>
+						<div class="project-overlay">
+							<a class="btn btn-ghost btn-small" href="https://jyjessence.business">Ver mas</a>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="faq" class="section section-light">
+			<div class="container">
+				<div class="section-heading reveal">
+					<span>Preguntas frecuentes</span>
+					<h2>Resolvemos tus dudas antes de empezar.</h2>
+					<p>Si necesitas mas detalle, escribenos y respondemos rapido.</p>
+				</div>
+				<div class="faq-list">
+					<div class="faq-item reveal">
+						<button type="button" aria-expanded="false" aria-controls="faq-content-1">
+							<span>¿Cuánto tiempo toma desarrollar un proyecto?</span>
+							<i class="fa-solid fa-plus"></i>
+						</button>
+						<div id="faq-content-1" class="faq-content" role="region" aria-hidden="true">
+							<p>
+								Depende de lo que necesitas, pero la mayoría de proyectos están listos entre 4 y 10 semanas. Antes de empezar te damos fechas reales, no estimados vagos que luego no se cumplen.
+							</p>
+						</div>
+					</div>
+					<div class="faq-item reveal">
+						<button type="button" aria-expanded="false" aria-controls="faq-content-2">
+							<span>¿Trabajan con clientes fuera de Costa Rica?</span>
+							<i class="fa-solid fa-plus"></i>
+						</button>
+						<div id="faq-content-2" class="faq-content" role="region" aria-hidden="true">
+							<p>
+								Sí. Trabajamos con negocios en toda Latinoamérica. Todo se coordina por videollamada y mensajes. La distancia no es excusa para comunicarse mal.
+							</p>
+						</div>
+					</div>
+					<div class="faq-item reveal">
+						<button type="button" aria-expanded="false" aria-controls="faq-content-3">
+							<span>¿Qué incluye el mantenimiento y soporte?</span>
+							<i class="fa-solid fa-plus"></i>
+						</button>
+						<div id="faq-content-3" class="faq-content" role="region" aria-hidden="true">
+							<p>
+								Revisiones, ajustes y ayuda cuando algo no funciona. Si tu sistema falla, no te dejamos esperando. Respondemos rápido porque sabemos que cada hora caída puede costarte ventas.
+							</p>
+						</div>
+					</div>
+					<div class="faq-item reveal">
+						<button type="button" aria-expanded="false" aria-controls="faq-content-4">
+							<span>¿Cómo es el proceso para iniciar un proyecto?</span>
+							<i class="fa-solid fa-plus"></i>
+						</button>
+						<div id="faq-content-4" class="faq-content" role="region" aria-hidden="true">
+							<p>
+								Nos escribís, te escuchamos y entendemos qué necesita tu negocio. Luego te mandamos una propuesta con lo que vamos a hacer, cuánto cuesta y cuándo estará listo. Trabajamos por entregas: en lugar de esperar meses para ver algo, vas viendo avances reales cada cierto tiempo y podés dar tu opinión en el camino. Sin compromisos hasta que estés seguro.
+							</p>
+						</div>
+					</div>
+					<div class="faq-item reveal">
+						<button type="button" aria-expanded="false" aria-controls="faq-content-5">
+							<span>¿Ofrecen garantía en sus desarrollos?</span>
+							<i class="fa-solid fa-plus"></i>
+						</button>
+						<div id="faq-content-5" class="faq-content" role="region" aria-hidden="true">
+							<p>
+								Sí. Si algo falla después de entregar, lo corregimos sin costo. No entregamos y desaparecemos.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="contacto" class="section contact">
+			<div class="container contact-grid">
+				<div class="contact-info reveal">
+					<div class="info-card">
+						<h2>Hablemos de tu proyecto.</h2>
+						<p>Cuentanos lo que necesitas y te respondemos en menos de 24 horas.</p>
+						<br>
+						<h3>Contacto directo</h3>
+						<ul>
+							<li>
+								<i class="fa-solid fa-envelope"></i>
+								<a href="mailto:lumentec25@gmail.com">lumentec25@gmail.com</a>
+							</li>
+							<li>
+								<i class="fa-solid fa-phone"></i>
+								<a href="https://wa.me/50662435191" target="_blank" rel="noopener">+506 62435191</a>
+							</li>
+							<li>
+								<i class="fa-solid fa-location-dot"></i>
+								<span>Costa Rica</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container footer-grid">
+			<div class="footer-brand">
+				<div class="logo footer-logo">
+					<span class="logo-text">LumenTec Software Solutions</span>
+				</div>
+				<p>
+					Sin fricciones ni Complicaciones.
+				</p>
+			</div>
+			<div class="footer-links">
+				<h4>Secciones</h4>
+				<a href="#nosotros">Sobre nosotros</a>
+				<a href="#servicios">Servicios</a>
+				<a href="#portafolio">Portafolio</a>
+				<a href="#faq">FAQ</a>
+				<a href="#contacto">Contacto</a>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<span> LumenTec Software Solutions {new Date().getFullYear()}</span>
+		</div>
+	</footer>
+
+	<a
+		class="whatsapp-float"
+		href="https://wa.me/50662435191"
+		target="_blank"
+		rel="noopener"
+		aria-label="Escribenos por WhatsApp"
+	>
+		<i class="fa-brands fa-whatsapp"></i>
+	</a>
+
+	<script is:inline>
+		const menuToggle = document.querySelector('.menu-toggle');
+		const navLinks = document.querySelector('.nav-links');
+		const navBtn = document.querySelector('.nav-btn');
+		
+		if (menuToggle) {
+			menuToggle.addEventListener('click', () => {
+				const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+				menuToggle.setAttribute('aria-expanded', !isExpanded);
+				navLinks.classList.toggle('is-open');
+				if(navBtn) navBtn.classList.toggle('is-open');
+			});
+		}
+
+		navLinks?.querySelectorAll('a').forEach(link => {
+			link.addEventListener('click', () => {
+				navLinks.classList.remove('is-open');
+				if(navBtn) navBtn.classList.remove('is-open');
+				menuToggle?.setAttribute('aria-expanded', 'false');
+			});
+		});
+
+		const navbar = document.querySelector('.navbar');
+		const onScroll = () => {
+			if (!navbar) return;
+			navbar.classList.toggle('is-scrolled', window.scrollY > 24);
+		};
+		window.addEventListener('scroll', onScroll);
+		onScroll();
+
+		const revealItems = document.querySelectorAll('.reveal');
+		const revealObserver = new IntersectionObserver(
+			(entries, observer) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('is-visible');
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.15 }
+		);
+		revealItems.forEach((item) => revealObserver.observe(item));
+
+		const faqItems = document.querySelectorAll('.faq-item');
+		const closeFaqItem = (item) => {
+			const button = item.querySelector('button');
+			const content = item.querySelector('.faq-content');
+			if (!button || !content) return;
+			button.setAttribute('aria-expanded', 'false');
+			content.setAttribute('aria-hidden', 'true');
+			content.style.maxHeight = '0px';
+			item.classList.remove('is-open');
+		};
+		const openFaqItem = (item) => {
+			const button = item.querySelector('button');
+			const content = item.querySelector('.faq-content');
+			if (!button || !content) return;
+			button.setAttribute('aria-expanded', 'true');
+			content.setAttribute('aria-hidden', 'false');
+			content.style.maxHeight = `${content.scrollHeight}px`;
+			item.classList.add('is-open');
+		};
+		faqItems.forEach((item) => {
+			const button = item.querySelector('button');
+			if (!button) return;
+			button.addEventListener('click', () => {
+				const isOpen = item.classList.contains('is-open');
+				faqItems.forEach((otherItem) => closeFaqItem(otherItem));
+				if (!isOpen) openFaqItem(item);
+			});
+		});
+	</script>
+</Layout>

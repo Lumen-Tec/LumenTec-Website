@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+
+const {
+	title = "LumenTec Software Solutions | Desarrollo de software en Costa Rica",
+		description =
+			"Software a medida y sitios web claros para negocios en Costa Rica y Latinoamerica.",
+} = Astro.props;
+
+const verification = {
+	google: "dNz4QuCFzsATPBD5SwCR5Slc4HR7AzonMArfRCWLFAE",
+};
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="google-site-verification" content={verification.google} />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#0b0b10" />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
